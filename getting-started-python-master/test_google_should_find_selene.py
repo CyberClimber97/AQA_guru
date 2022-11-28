@@ -12,5 +12,6 @@ def test_bad_search(open_browser):
     browser.element('[id="search"]').should(have.text('По запросу фывфывц324124цвыа ничего не найдено.'))
 
 
-def equal():
-    0 == 0
+
+def conflict():
+    assert 0 == 0
