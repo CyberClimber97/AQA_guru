@@ -14,3 +14,7 @@ def test_bad_search(open_browser):
 
 def conflict():
     assert 0 == 0
+
+
+def conflict2():
+    assert 1 != 0
