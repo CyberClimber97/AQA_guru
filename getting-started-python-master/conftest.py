@@ -1,19 +1,20 @@
 import pytest
 from selene.support.shared import browser
-from selene import be, have
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 
 
 @pytest.fixture()
-def config_chrome():
-    options = Options()
-    options.add_argument('--window-size=1920,1080')
-    return options
+def set_webdriver():
+    browser.config.driver = webdriver.Chrome(ChromeDriverManager().install())
+    return browser.config.driver
 
 
-@pytest.fixture(scope="session")
-def open_browser():
-    browser.open('https://google.com')
+@pytest.fixture()
+def set_browser_size():
+    browser.config.driver.maximize_window()
 
 
+@pytest.fixture()
+def open_browser(set_webdriver, set_browser_size):
+    browser.open('https://google.com/ncr')
