@@ -9,6 +9,6 @@ def test_search(open_browser):
 
 def test_bad_search(open_browser):
     browser.element('[name="q"]').should(be.blank).type('фывфывц324124цвыа').press_enter()
-    browser.element('[id=search]').should(have.text('Your search - фывфывц324124цвыа - did not match any documents'))
+    browser.element('p[aria-level]').should(have.text('Your search - фывфывц324124цвыа - did not match any documents'))
 
 
