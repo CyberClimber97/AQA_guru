@@ -4,10 +4,11 @@ from selenium import webdriver
 
 
 @pytest.fixture(scope='function', autouse=True)
-def test_complete_todo():
+def browser_open():
     # chrome_options = webdriver.ChromeOptions()
     # chrome_options.add_argument('--headless')              #не понял. Вроде как для выполнения в контейнере под капотом. Увеличивает скорость выполнения
     # browser.driver.maximize_window()  плохая практика
-    browser.config.window_width = 1700
-    browser.config.window_height = 1000
-    browser.config.base_url = 'https://demoqa.com/automation-practice-form'
+    # browser.config.driver_name = 'chrome'
+    browser.config.window_width = 1920
+    browser.config.window_height = 1080
+    browser.config.base_url = 'https://demoqa.com'
